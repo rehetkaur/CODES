@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+i=cv2.imread('panther.jpg')
+cv2_imshow(i)
+gray = cv2.cvtColor(i,cv2.COLOR_BGR2GRAY)
+cv2_imshow(gray)
+
+
+#BGR image
+ib = i[:,:,0]  # the first page B matrix
+ig = i[:,:,1]  # second page G matrix
+ir = i[:,:,2]  # third page R matrix
+all3 = np.hstack((ib,ig,ir))
+cv2_imshow(all3)
+
+temp = i
+temp[:,:,0]=0
+cv2_imshow(i)
